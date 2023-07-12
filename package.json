@@ -8,8 +8,9 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jeong Min Cho",
+  "repository": "Jeong-Min-Cho/threads-api-sdk",
+  "license": "MIT",
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jest": "^29.5.3",
