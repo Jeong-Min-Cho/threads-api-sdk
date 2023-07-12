@@ -28,14 +28,8 @@ export abstract class AbstractThreadsApi {
     const response = await axios.get(`https://www.threads.net/@${username}`, {
       headers: this.fetchHtmlHeaders,
     });
-
-    // console.log("response.data", response.data);
-
     const userIdKeyValue = response.data.match('"user_id":"(\\d+)"');
     const userId = Number(userIdKeyValue[1]);
-
-    console.log("userId", userId);
-
     return userId;
   }
 

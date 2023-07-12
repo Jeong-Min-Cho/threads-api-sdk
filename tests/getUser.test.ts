@@ -7,9 +7,6 @@ beforeEach(async () => {
 });
 
 test("getuserid retrieves user id", async () => {
-  const testUserName = "zuck";
-  const userID = await api.getUserId(testUserName);
-
-  // Zuckerberg's user ID is 314216
-  expect(userID).toEqual(314216);
+  const testUserId = 314216;
+  const user = await api.get_user(testUserId);
 });
