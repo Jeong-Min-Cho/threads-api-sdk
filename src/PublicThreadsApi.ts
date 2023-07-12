@@ -3,6 +3,7 @@ import { AbstractThreadsApi } from "./AbstractThreadsApi";
 
 import { LSDTOKEN } from "./constants/LSDToken";
 import { UserThreads } from "./types/Thread";
+import { GetUser, User } from "./types/User";
 
 export class PublicThreadsApi extends AbstractThreadsApi {
   THREADS_API_URL = "https://www.threads.net/api/graphql";
@@ -50,7 +51,7 @@ export class PublicThreadsApi extends AbstractThreadsApi {
     return token;
   }
 
-  async get_user(id: number): Promise<any> {
+  async get_user(id: number): Promise<User> {
     const headers = {
       ...this.default_headers,
       "X-FB-Friendly-Name": "BarcelonaProfileRootQuery",
@@ -65,7 +66,9 @@ export class PublicThreadsApi extends AbstractThreadsApi {
       },
       { headers: headers }
     );
-    return response.data;
+
+    const data = response.data as GetUser;
+    return data.data.userData.user;
   }
 
   async get_user_threads(id: number): Promise<UserThreads> {
@@ -87,7 +90,7 @@ export class PublicThreadsApi extends AbstractThreadsApi {
     return response.data;
   }
 
-  async get_user_replies(id: number): Promise<any> {
+  async get_user_replies(id: number): Promise<UserThreads> {
     const headers = {
       ...this.default_headers,
       "X-FB-Friendly-Name": "BarcelonaProfileRepliesTabQuery",

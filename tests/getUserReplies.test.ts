@@ -6,11 +6,10 @@ beforeEach(async () => {
   api = new PublicThreadsApi();
 });
 
-test("get_user gets a proper data", async () => {
+test("get_user_replies gets the user's replies", async () => {
   // 314216 is the user id for Zuckerberg
   const testUserId = 314216;
-  const userData = await api.get_user(testUserId);
+  const replies = await api.get_user_replies(testUserId);
 
-  expect(userData.full_name).toEqual("Mark Zuckerberg");
-  expect(userData.username).toEqual("zuck");
+  expect(replies.data.mediaData.threads.length).toBeGreaterThan(0);
 });
