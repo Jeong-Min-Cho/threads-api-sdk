@@ -67,10 +67,7 @@ export class PublicThreadsApi extends AbstractThreadsApi {
       { headers: headers }
     );
 
-    console.log("response.data", response.data);
-
     const data = response.data as GetUser;
-
     return data.data.userData.user;
   }
 
@@ -93,7 +90,7 @@ export class PublicThreadsApi extends AbstractThreadsApi {
     return response.data;
   }
 
-  async get_user_replies(id: number): Promise<any> {
+  async get_user_replies(id: number): Promise<UserThreads> {
     const headers = {
       ...this.default_headers,
       "X-FB-Friendly-Name": "BarcelonaProfileRepliesTabQuery",
