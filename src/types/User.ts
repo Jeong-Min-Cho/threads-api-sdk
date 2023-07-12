@@ -1,5 +1,5 @@
 export interface GetUser {
-  data: UserData;
+  data: { userData: UserData };
   extensions: { is_final: boolean };
 }
 

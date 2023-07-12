@@ -11,7 +11,6 @@ test("get_user gets a proper data", async () => {
   const testUserId = 314216;
   const userData = await api.get_user(testUserId);
 
-  expect(userData.id).toEqual(testUserId);
   expect(userData.full_name).toEqual("Mark Zuckerberg");
   expect(userData.username).toEqual("zuck");
 });

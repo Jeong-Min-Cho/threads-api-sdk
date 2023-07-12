@@ -67,9 +67,11 @@ export class PublicThreadsApi extends AbstractThreadsApi {
       { headers: headers }
     );
 
+    console.log("response.data", response.data);
+
     const data = response.data as GetUser;
 
-    return data.data.user;
+    return data.data.userData.user;
   }
 
   async get_user_threads(id: number): Promise<UserThreads> {
